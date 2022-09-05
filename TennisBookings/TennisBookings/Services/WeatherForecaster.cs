@@ -1,6 +1,6 @@
 ﻿namespace TennisBookings.Services
 {
-    public class WeatherForecaster
+    public class WeatherForecaster : IWeatherForecaster
     {
         public WeatherResult GetCurrentWeather()
         {
