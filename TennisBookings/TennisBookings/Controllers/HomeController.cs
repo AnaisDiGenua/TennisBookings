@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using TennisBookings.Configuration;
 using TennisBookings.Models;
 using TennisBookings.Services;
 
@@ -13,10 +15,12 @@ namespace TennisBookings.Controllers
     public class HomeController : Controller
     {
         private readonly IWeatherForecaster _weatherForecaster;
+        private readonly FeaturesConfiguration _featuresConfiguration;
 
-        public HomeController(IWeatherForecaster weatherForecaster)
+        public HomeController(IWeatherForecaster weatherForecaster, IOptions<FeaturesConfiguration> options)
         {
             _weatherForecaster = weatherForecaster;
+            _featuresConfiguration = options.Value;
         }
 
         [Route("")]

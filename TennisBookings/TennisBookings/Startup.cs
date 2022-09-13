@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TennisBookings.Configuration;
 using TennisBookings.Services;
 
 namespace TennisBookings
@@ -27,6 +28,7 @@ namespace TennisBookings
         {
             services.AddControllersWithViews();
             services.AddTransient<IWeatherForecaster, WeatherForecaster>();
+            services.Configure<FeaturesConfiguration>(Configuration.GetSection("Features"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
